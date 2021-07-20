@@ -1,0 +1,17 @@
+﻿l_english:
+ ZOM_fascism:0 "Zombie Horde"
+ ZOM_fascism_DEF:0 "the Zombie Horde"
+ ZOM_democratic:0 "Zombie Horde"
+ ZOM_democratic_DEF:0 "the Zombie Horde"
+ ZOM_neutrality:1 "Zombie Horde"
+ ZOM_neutrality_DEF:1 "the Zombie Horde"
+ ZOM_communism:0 "Zombie Horde"
+ ZOM_communism_DEF:0 "the Zombie Horde"
+ ZOM_fascism_ADJ:0 "Zombie"
+ ZOM_democratic_ADJ:0 "Zombie"
+ ZOM_neutrality_ADJ:0 "Zombie"
+ ZOM_communism_ADJ:0 "Zombie"
+ ZOM:0 "Zombie Horde"
+ ZOM_DEF:0 "Zombie Horde"
+ ZOM_ADJ:0 "Zombie Horde"
+ 

@@ -1,0 +1,61 @@
+spriteTypes = {	
+
+	SpriteType = {
+	name = "GFX_claymore_event"
+	texturefile = "gfx/event_pictures/claymore.dds"			
+	}	
+	
+	SpriteType = {
+	name = "GFX_zombie_merchant_ship"
+	texturefile = "gfx/event_pictures/zombie_merchant_ship.dds"			
+	}	
+	
+	SpriteType = {
+	name = "GFX_zombies_ship_news"
+	texturefile = "gfx/event_pictures/zombie_merchant_ship_NEWS.dds"			
+	}	
+	
+	SpriteType = {
+	name = "GFX_zombies_appear_in_China"
+	texturefile = "gfx/event_pictures/zombies_appear_event.dds"			
+	}	
+	
+	SpriteType = {
+	name = "GFX_startup_event"
+	texturefile = "gfx/event_pictures/zombies_1st_event.dds"			
+	}	
+	
+	SpriteType = {
+	name = "GFX_Zombies_in_Brazil_Japan_news"
+	texturefile = "gfx/event_pictures/zombie_in_BRA_JAP_NEWS.dds"			
+	}
+	
+	SpriteType = {
+	name = "GFX_pathogen_in_China_news"
+	texturefile = "gfx/event_pictures/pathogen_china.dds"			
+	}
+	
+	SpriteType = {
+	name = "GFX_China_forms_faction_news"
+	texturefile = "gfx/event_pictures/china_forms_faction_NEWS.dds"			
+	}
+
+	SpriteType = {
+	name = "GFX_China_faction_proposal"
+	texturefile = "gfx/event_pictures/china_faction_proposal_event.dds"			
+	}
+
+	SpriteType = {
+	name = "GFX_dominions_left_wide_open_news"
+	texturefile = "gfx/event_pictures/dominions_left_open_NEWS.dds"			
+	}
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	

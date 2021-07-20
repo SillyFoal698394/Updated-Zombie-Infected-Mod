@@ -1,0 +1,169 @@
+ideas = {
+	country = {
+		zombies_are_coming = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				
+			}
+		}
+		
+		ravenous = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				ai_focus_aggressive_factor = 2.5 #1.8
+				army_org_Factor = 1
+				army_morale_factor = 1
+				land_reinforce_rate = 1
+				cas_damage_reduction = 0.5
+				army_speed_factor = 0.10
+
+				convoy_retreat_speed = 0.25 # stop zombies dying to subs
+				supply_consumption_factor = -0.7
+				army_attack_factor = 0.5
+				attrition = -0.30
+				no_supply_grace = 240
+				training_time_factor = -0.5
+				conscription = 0.25 #Conscription
+				 	
+				#resistance_growth_on_our_occupied_states = 0.5
+				#resistance_target_on_our_occupied_states = 0.5
+				#required_garrison_factor = 0.5
+				#occupation_cost = -1
+				
+				
+				
+				non_core_manpower = 0.5
+				political_power_gain = -2
+				local_resources_factor = -0.90
+				experience_gain_army = -100
+				ai_get_ally_desire_factor = -5000
+				ai_join_ally_desire_factor = -5000
+				join_faction_tension = 5000
+			}
+		}
+		
+		horde_idea = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				breakthrough_factor = 0.5
+				#army_speed_factor = 0.10
+				
+			}
+		}
+		
+		
+		horde_idea_1 = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				breakthrough_factor = 1
+				#army_speed_factor = 0.20
+				army_attack_factor = 0.10
+			}
+		}
+		
+		blood_in_the_air_idea = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				
+				army_speed_factor = 0.20
+				
+			}
+		}
+			
+	} # end of country ideas
+} #must be last

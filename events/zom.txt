@@ -1,0 +1,155 @@
+﻿#Special Thanks To Always War Mod
+add_namespace = wars
+
+country_event = {
+	id = wars.1
+	title = wars.1.t
+	desc = wars.1.d
+	picture = GFX_report_event_soviet_soldiers
+
+	trigger = {
+		TAG = ZOM
+		has_capitulated = no
+		any_neighbor_country = {
+			AND = {
+				NOT = { has_war_with = FROM }
+				NOT = { is_in_faction_with = FROM }
+				NOT = { is_puppet_of = FROM }
+				NOT = { is_subject_of = FROM }
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = WAR
+		every_neighbor_country = {
+			if = {
+				limit = {
+					AND = {
+						NOT = { is_in_faction_with = FROM }
+						NOT = { has_war_with = FROM }
+						NOT = { is_puppet_of = FROM }
+						NOT = { is_subject_of = FROM }
+					}
+				}	
+				declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+}
+country_event = {
+	id = wars.2
+	title = wars.2.t
+	desc = wars.2.d
+	picture = GFX_report_event_soviet_soldiers
+
+	trigger = {
+		TAG = ZOM
+		has_capitulated = no
+		any_neighbor_country = {
+			AND = {
+				NOT = { has_war_with = FROM }
+				NOT = { is_in_faction_with = FROM }
+				NOT = { is_puppet_of = FROM }
+				NOT = { is_subject_of = FROM }
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = WAR
+		every_neighbor_country = {
+			if = {
+				limit = {
+					AND = {
+						NOT = { is_in_faction_with = FROM }
+						NOT = { has_war_with = FROM }
+						NOT = { is_puppet_of = FROM }
+						NOT = { is_subject_of = FROM }
+					}
+				}	
+				declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+}
+
+country_event = {
+	id = wars.0
+	title = wars.0.t
+	desc = wars.0.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ZOM
+		
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.0.a
+		add_manpower = 10000000
+	}
+}
+country_event = {
+	id = wars.998
+	title = wars.998.t
+	desc = wars.998.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ZOM
+		
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wars.0.a
+		add_equipment_to_stockpile = {
+    	type = infantry_equipment
+    	amount = 1000000
+    	producer = ZOM
+		}
+	}
+}
+country_event = {
+	id = wars.999
+	title = wars.999.t
+	desc = wars.999.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ZOM
+		
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = wars.0.a
+		add_equipment_to_stockpile = {
+    	type = infantry_equipment
+    	amount = 1000000
+    	producer = ZOM
+		}
+	}
+}

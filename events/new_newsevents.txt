@@ -1,0 +1,144 @@
+###########################
+# NEW News Events
+###########################
+
+add_namespace = news
+
+news_event = {
+	id = news.1000 # deadly pathogen discovered!
+	title = news.1000.t
+	desc = news.1000.d
+	picture = GFX_pathogen_in_China_news # Image displayed alongside the text.
+
+	major = yes # Optional : if set to "yes" every country in the world will see this event
+
+	is_triggered_only = yes # Optional : if set to "yes" the event will only occur by command
+
+	#hidden = yes # Optional : if set to "yes" no one will see the event
+
+	fire_only_once = yes # Optional : if set to "yes" the event will never occur more than once
+
+	
+	option = { # This is an example of an option that has no function
+		name = news.1000.b # The localisable text that appears on the button.
+	}
+        
+}
+
+news_event = {
+	id = news.1001 # zombies found on merhant fleet
+	title = news.1001.t
+	desc = news.1001.d
+	picture = GFX_zombies_ship_news # Image displayed alongside the text.
+
+	major = yes # Optional : if set to "yes" every country in the world will see this event
+
+	is_triggered_only = yes # Optional : if set to "yes" the event will only occur by command
+
+	#hidden = yes # Optional : if set to "yes" no one will see the event
+
+	fire_only_once = no # Optional : if set to "yes" the event will never occur more than once
+
+	
+	option = { # This is an example of an option that has no function
+		name = news.1001.b # The localisable text that appears on the button.
+	}
+        
+}
+
+
+news_event = {
+	id = news.1005 # zombies in Japan and Brazil
+	title = news.1005.t
+	desc = news.1005.d
+	picture = GFX_Zombies_in_Brazil_Japan_news # Image displayed alongside the text.
+
+	major = yes # Optional : if set to "yes" every country in the world will see this event
+
+	#is_triggered_only = no # Optional : if set to "yes" the event will only occur by command
+
+	#hidden = yes # Optional : if set to "yes" no one will see the event
+
+	#fire_only_once = yes # Optional : if set to "yes" the event will never occur more than once
+	trigger = {
+		
+		#499 = { is_controlled_by = ZOM }
+		#498 = { is_owned_by = ZOM }
+		#528 = { is_controlled_by = ZOM }
+		#528 = { is_owned_by = ZOM }
+		JAP = { has_war_with = ZOM }
+		BRA = { has_war_with = ZOM }
+		NOT = { has_global_flag = JapanandBrazil }
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	
+	immediate = {
+		set_global_flag = JapanandBrazil
+	}
+	
+	
+	option = { # This is an example of an option that has no function
+		name = news.1005.b # The localisable text that appears on the button.
+	}
+        
+}
+
+
+news_event = {
+	id = news.1006 # garnd alliance formed
+	title = news.1006.t
+	desc = news.1006.d
+	picture = GFX_China_forms_faction_news # Image displayed alongside the text.
+
+	major = yes # Optional : if set to "yes" every country in the world will see this event
+
+	is_triggered_only = yes # Optional : if set to "yes" the event will only occur by command
+
+	#hidden = yes # Optional : if set to "yes" no one will see the event
+
+	fire_only_once = yes # Optional : if set to "yes" the event will never occur more than once
+	
+	#mean_time_to_happen = { days = 1 }
+	
+	option = { # This is an example of an option that has no function
+		name = news.1006.b # The localisable text that appears on the button.
+	}
+        
+}
+
+news_event = {
+	id = news.1007 # British dominions left wide open!
+	title = news.1007.t
+	desc = news.1007.d
+	picture = GFX_dominions_left_wide_open_news # Image displayed alongside the text.
+
+	major = yes # Optional : if set to "yes" every country in the world will see this event
+
+	#is_triggered_only = no # Optional : if set to "yes" the event will only occur by command
+
+	#hidden = yes # Optional : if set to "yes" no one will see the event
+
+	#fire_only_once = yes # Optional : if set to "yes" the event will never occur more than once
+	trigger = {
+		#499 = { is_controlled_by = ZOM }
+		#498 = { is_owned_by = ZOM }
+		#528 = { is_controlled_by = ZOM }
+		#528 = { is_owned_by = ZOM }
+		ENG = { has_war_with = ZOM }
+		ENG = {  has_capitulated = yes }
+		NOT = { has_global_flag = ZOMindominions }
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	
+	immediate = {
+		set_global_flag = ZOMindominions
+	}
+	
+	
+	option = { # This is an example of an option that has no function
+		name = news.1007.b # The localisable text that appears on the button.
+	}
+        
+}
