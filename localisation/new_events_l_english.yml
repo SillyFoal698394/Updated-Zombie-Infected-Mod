@@ -1,0 +1,54 @@
+﻿l_english:
+
+
+zombieland.100.t:0 "When Will the Horde Appear?"
+zombieland.100.d:0 "The Zombies will spawn in CHINA and almost certainly overrun all of China. Therefore it is recommended you play as someone further away to actually get a game.\n\nAs the Zombies advance, there will be several events where Zombies are found on merchant ships and then Zombies spawning on a random coastal state, you should keep a force in you country to counter Zombies spawning on your coastal states and capping you."
+zombieland.200.t:0 "Zombies Horde Out of Control in China!"
+zombieland.200.d:0 "Following the recent discovery of a deadly pathogen, infected individuals have become feral and have overrun the local Chinese garrison. It is unclear as to what the situation is currently like in China. We should observe cautiously."
+zombieland.300.t:0 "Zombies Identified in Brazil and Japan"
+zombieland.300.d:0 "Following our advance to the coast, a number of infected have placed themselves on merchant ship, currently destined for both Brazil and Japan."
+zombieland.4.t:0 "Zombies Found on Merchant Ship"
+zombieland.4.d:0 "Our Zombies have infiltrated a human merchant ship, who knows where it will turn up..."
+zombieland.27.t:0 "Chinese Peseants Helpless to Infection"
+zombieland.27.d:0 "Our Hordes have swept through China, infecting millions of helpless peseants, who have now joined our ranks."
+zombieland.34.t:0 "Create Alliance againt the Zombie Horde?"
+zombieland.34.d:0 "We alone bear the burden of this new infection, and it is hopeless to think we alone can defeat it. We should therefore reach out to the hostile warlords about setting aside our differences and coming togethor as one."
+zombieland.35.t:0 "Propsoal for Grand Alliance againt the Zombie Horde?"
+zombieland.35.d:0 "With the Zombie threat spiralling out of control, China has approached us to assist them and the rest of China in overcoming this common enemy. What is our reply?"
+ZOM_human_alliance:0 "Grand Alliance of Humanity"
+zombieland.36.t:0 "Zombies Heading Towards the Dominions!"
+zombieland.36.d:0 "Following our collapse to the Zombie Horde, reports have come in that Zombies have been confirmed to be on board ships heading to our dominions."
+
+
+news.1000.t:0 "Deady Pathogen Discovered in China"
+news.1000.d:0 "A deadly new pathogen has been detected in Hubei provence in China, and has spread wildly out of control. The disease takes control of the host and makes them ravenous with the hunger for human flesh.\n\nChinese officials have confirmed that they longer have the new disease under containment and the situation is out of their control."
+news.1000.b:0 "God save us"
+
+news.1001.t:0 "Zombies Found on Merchant Ship"
+news.1001.d:0 "Port officials have confirmed that humans infected with the new deadly pathogen that had originated in Wuhan has escaped China aboard a merchant ship, which has already left China.\n\nIt is unclear where the merchant ship will dock, and ports around the world wait anxiously to see if the infected ship turns up on their doorstep."
+news.1001.b:0 "How can we let this happen!"
+
+news.1005.t:0 "Zombies Identified in Brazil and Japan"
+news.1005.d:0 "Following China's downfall. both Brazil and Japan have broadcasted alarming reports of the infected Zombies in their respective nations.\n\nHow this has come to be is unclear, and how both nations will be able to cope againt such a threat is worrysome."
+news.1005.b:0 "It's spreading quickly!"
+
+news.1006.t:0 "Grand Alliance of Humanity Created"
+news.1006.d:0 "China and the hostile Warlords have set aside their differences to overcome this new threat in an unprecedented development.\n\nHopefully now as China unites as one there may be hope they can drive back this new infection"
+news.1006.b:0 "Amazing"
+
+news.1007.t:0 "Dominions Left Wide Open!"
+news.1007.d:0 "Following the United Kingdom's collapse from the Zombie Horde, it has now been confirmed ships with active infections are on their way to the dominions.\n\nWithout the UK to defend them, it is likely the now alone dominions will buckle under the weight of the dead."
+news.1007.b:0 "What are we to do?"
+
+
+
+
+
+
+
+
+
+
+
+
+
