@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ideas = {
 	country = {
 		zombies_are_coming = {
@@ -166,4 +167,260 @@ ideas = {
 		}
 			
 	} # end of country ideas
+=======
+ideas = {
+	country = {
+		zombies_are_coming = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				
+			}
+		}
+		
+		ravenous = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				ai_focus_aggressive_factor = 2.5 #1.8
+				army_org_Factor = 0.5
+				army_morale_factor = 0.5
+				land_reinforce_rate = 0.75
+				cas_damage_reduction = 0.33
+				army_speed_factor = 0.05
+				supply_consumption_factor = -0.7
+				army_attack_factor = 0.3
+				attrition = -0.5
+				no_supply_grace = 180
+				convoy_retreat_speed = 0.25 # stop zombies dying to subs
+				
+				
+				training_time_factor = -0.5
+				conscription = 0.25 #Conscription
+				 	
+				#resistance_growth_on_our_occupied_states = 0.5
+				#resistance_target_on_our_occupied_states = 0.5
+				#required_garrison_factor = 0.5
+				#occupation_cost = -1
+				
+				
+				
+				non_core_manpower = 0.5
+				political_power_gain = -2
+				local_resources_factor = -0.50
+				experience_gain_army = -100
+				ai_get_ally_desire_factor = -5000
+				ai_join_ally_desire_factor = -5000
+				join_faction_tension = 5000
+			}
+		}
+		
+		horde_idea = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				breakthrough_factor = 0.25
+				#army_speed_factor = 0.10
+				
+			}
+		}
+		
+		
+		horde_idea_1 = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				breakthrough_factor = 0.5
+				#army_speed_factor = 0.20
+				army_attack_factor = 0.05
+			}
+		}
+		
+		blood_in_the_air_idea = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				
+				army_speed_factor = 0.1
+				
+			}
+		}
+		
+		
+		devastating_speed = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				
+				army_speed_factor = 0.1
+				army_attack_factor = 0.025
+				
+			}
+		}
+		
+		numbers_alone = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+				
+				army_attack_factor = 0.1
+				army_morale_factor = 0.1
+				
+			}
+		}
+		
+		ZOM_spawn_idea = {
+		
+			#removal_cost = -1
+			
+			allowed = {
+				#tag = NOR
+			}
+			
+			
+			available{		
+			}
+			
+			cancel{
+			}
+				
+			allowed_civil_war = {
+			
+			}
+
+			#picture = neutrality_idea
+			
+			modifier = {
+
+			}
+		}
+			
+	} # end of country ideas
+>>>>>>> Stashed changes
 } #must be last

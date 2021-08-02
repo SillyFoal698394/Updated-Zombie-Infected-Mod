@@ -1,4 +1,10 @@
 ﻿l_english:
+ zombie_tech_folder:0 "Zombie Research"
+ zombie_tech_folder_tab:0 "Zombie Research"
+ #zombie_tech_folder_tab_desc:0 "Zombie Research"
+ zombie_tech_folder_desc:0 "Contains research that will help in the struggle against the dead."
+ ZOMBIE_TITLE_WEAPONS:0 "Anti-Zombie Research"
+
  RESEARCH_BONUSES_TOOLTIP:0 "Limited technology bonuses we have:"
  RESEARCH_BONUSES_EMPTY_TOOLTIP:0 "Limited technology bonuses will be listed here."
  RESEARCH_BONUS_SPEED_DESC:0 "§Y$COUNT$x§! $VALUE|G%0$ research speed $NAME$"
@@ -854,8 +860,7 @@
  motorized_rocket_unit:0 "Motorized Rocket Artillery"
  mot_rockets_research:3 "Motorized Rocket Artillery Research Speed"
  UNLOCK_DIVISION_TEMPLATE:0 "Unlocks a free §HDivision Template§!"
- ZOMBIE_TITLE_WEAPONS:0 "ANTI-ZOMBIE"
- zom_start_tech:0 "test"
+ 
  
  
  

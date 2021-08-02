@@ -1,0 +1,20 @@
+################
+#### ITALY  ####
+################
+
+
+ZOM_spawn_zombies = {
+	
+	allowed = {
+		original_tag = ZOM
+	}
+
+	available = {
+		has_completed_focus = ZOM_reanimation
+	}
+
+	visible = {
+		#has_war = yes
+		has_completed_focus = ZOM_reanimation
+	}
+}

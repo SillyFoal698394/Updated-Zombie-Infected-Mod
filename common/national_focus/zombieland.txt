@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 focus_tree = {
 	id = zombieland_focus
 	
@@ -740,3 +741,990 @@ focus_tree = {
 	
 	
 }
+=======
+focus_tree = {
+	id = zombieland_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ZOM
+			#has_dlc = "Together for Victory"
+		}
+	}
+	
+	default = no   #bool for generic focus tree
+	
+	continuous_focus_position = { x = 50 y = 5000 }
+
+
+
+	focus = {
+		id = ZOM_start
+		icon = GFX_goal_generic_attack_allies
+		x = 8
+		y = 1  # position of the focus
+		#relative_position_id = 
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 0.2 # 1 = 7 days
+		#prerequisite = { focus =  }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+		
+		
+		
+			hidden_effect = {
+			
+			
+		delete_unit_template_and_units = {
+			division_template = "Infantry template 1"
+			disband = yes #will refund equipment and manpower
+		}
+		
+		delete_unit_template_and_units = {
+			division_template = "Infantry template 2"
+			disband = yes #will refund equipment and manpower
+		}
+			
+			delete_unit_template_and_units = {
+			division_template = "Juntuán"
+			disband = yes #will refund equipment and manpower
+		}
+
+		delete_unit_template_and_units = {
+			division_template = "Sanjiao Jun"
+			disband = yes #will refund equipment and manpower
+		}
+		
+		delete_unit_template_and_units = {
+			division_template = "Zombies 2"
+			disband = yes #will refund equipment and manpower
+		}
+		
+		delete_unit_template_and_units = {
+			division_template = "Qibing Jun"
+			disband = yes #will refund equipment and manpower
+		}
+		#country_lock_all_division_template = yes
+		army_experience = -30
+	
+		set_rule = {
+			can_join_factions = no
+			can_create_factions = no
+		}
+			}
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+
+	focus = {
+		id = ZOM_fetch_me_their_souls_1
+		icon = GFX_goal_generic_attack_allies
+		x = -4
+		y = 2  # position of the focus
+		relative_position_id = ZOM_start
+		
+		available = {
+			owns_state = 620
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_start }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			custom_effect_tooltip = ZOM_undeadhorse_tt
+		hidden_effect = {
+			ZOM = {
+				620 = {
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+				}
+				}
+				}
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = ZOM_fetch_me_their_souls_2
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 1  # position of the focus
+		relative_position_id = ZOM_fetch_me_their_souls_1
+		
+		available = {
+			owns_state = 620
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_fetch_me_their_souls_1 }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			custom_effect_tooltip = ZOM_undeadhorse_tt
+		hidden_effect = {
+			ZOM = {
+				620 = {
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+				}
+				}
+			
+		}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = ZOM_fetch_me_their_souls_3
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 2  # position of the focus
+		relative_position_id = ZOM_fetch_me_their_souls_1
+		
+		available = {
+			owns_state = 620
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_fetch_me_their_souls_2 }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+		custom_effect_tooltip = ZOM_undeadhorse_tt
+		hidden_effect = {
+			ZOM = {
+				620 = {
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+				}
+				}
+				}
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = ZOM_horde_instinct
+		icon = GFX_goal_generic_attack_allies
+		x = -2
+		y = 2  # position of the focus
+		relative_position_id = ZOM_start
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 7.2 # 1 = 7 days
+		prerequisite = { focus = ZOM_start }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			add_ideas = horde_idea
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	focus = {
+		id = ZOM_jugular_bite
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 3 # position of the focus
+		relative_position_id = ZOM_horde_instinct
+		
+		available = {
+			has_idea = numbers_alone
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 7.2 # 1 = 7 days
+		prerequisite = { focus = ZOM_horde_instinct }
+		prerequisite = { focus = ZOM_mutation_1 }
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			swap_ideas = { 
+			  remove_idea = horde_idea
+			  add_idea = horde_idea_1
+			}
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = ZOM_reanimation
+		icon = GFX_goal_generic_attack_allies
+		x = 2
+		y = 2  # position of the focus
+		relative_position_id = ZOM_start
+		
+		available = {
+			owns_state = 620
+			CHI = {
+			OR = {
+				has_capitulated = yes
+				surrender_progress > 0.5
+			}
+			}
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_start }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+		unlock_decision_category_tooltip = ZOM_spawn_zombies
+		custom_effect_tooltip = ZOM_reanimation_tt
+		hidden_effect = {
+			ZOM = {
+				620 = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					#prioritize = { 46 }
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+				
+				
+				
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+				}
+					
+				} #end of 498
+		
+		
+		} #end of ZOM
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = ZOM_mongol_horses
+		icon = GFX_goal_generic_attack_allies
+		x = 3
+		y = 3  # position of the focus
+		relative_position_id = ZOM_start
+		
+		available = {
+			owns_state = 330
+			MON = {
+				has_capitulated = yes
+			}
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_reanimation }				
+		
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+		
+		custom_effect_tooltip = ZOM_undeadMONGOLhorse_tt
+		hidden_effect = {
+			ZOM = {
+				330 = {
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Undead Horsemen\" division_template = \"Undead Horsemen\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+				}
+				}
+				}
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	focus = {
+		id = ZOM_blood_in_the_air
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 3  # position of the focus
+		relative_position_id = ZOM_reanimation
+		
+		available = {
+			has_idea = devastating_speed
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 7.2 # 1 = 7 days
+		prerequisite = { focus = ZOM_reanimation }				
+		prerequisite = { focus = ZOM_mutation_1 }
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			
+			add_ideas = blood_in_the_air_idea
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
+		id = ZOM_expand_the_hivemind
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 1  # position of the focus
+		relative_position_id = ZOM_start
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 2 # 1 = 7 days
+		prerequisite = { focus = ZOM_start }	
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			
+			add_state_core = 605
+			add_state_core = 744
+			add_state_core = 750
+			add_state_core = 607
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	
+	focus = {
+		id = ZOM_mutation_1
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 2  # position of the focus
+		relative_position_id = ZOM_expand_the_hivemind
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_expand_the_hivemind }
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			country_event = { id = zombieland.44 }
+			
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	focus = {
+		id = ZOM_nexus_of_the_dead
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 2  # position of the focus
+		relative_position_id = ZOM_mutation_1
+		
+		available = {
+			CHI = {
+				OR = {
+				has_capitulated = yes
+				surrender_progress > 0.5
+			}
+			}
+			PRC = {
+				OR = {
+				has_capitulated = yes
+				surrender_progress > 0.5
+			}
+			}
+			YUN = {
+				OR = {
+				has_capitulated = yes
+				surrender_progress > 0.5
+			}
+			}
+			#GXC = {
+			#	has_capitulated = yes	#	doesn;t seem to work ??
+			#}
+			SHX = {
+				OR = {
+				has_capitulated = yes
+				surrender_progress > 0.5
+			}
+			}
+			XSM = {
+				OR = {
+				has_capitulated = yes
+				surrender_progress > 0.5
+			}
+			}
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_mutation_1 }
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			every_state = { 
+				LIMIT = { 
+					is_core_of = CHI
+					NOT = {
+						is_core_of = ZOM
+						is_core_of = SIK
+						is_core_of = MEN
+						is_core_of = MAN
+					}
+				}
+				add_core_of = ZOM
+		
+			}
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = ZOM_mutation_2
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 1  # position of the focus
+		relative_position_id = ZOM_nexus_of_the_dead
+		
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+		
+		cost = 10 # 1 = 7 days
+		prerequisite = { focus = ZOM_nexus_of_the_dead}
+		prerequisite = { focus = ZOM_jugular_bite focus = ZOM_blood_in_the_air}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#what happens when player completes focus
+		
+		completion_reward = {
+			custom_effect_tooltip = updateplease_tt
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+} # MUST BE LAST
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # befriend
 # conquer
 # antagonize
@@ -221,3 +222,49 @@ ZOM_unit_production = {
 	}
 	
 }
+=======
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+
+default_unit_production = {
+	allowed = {
+		tag = ZOM
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 900
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = 900
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = zombie
+		value = 900
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = zombies
+		value = 900
+	}
+}
+>>>>>>> Stashed changes

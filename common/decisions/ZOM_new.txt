@@ -1,0 +1,89 @@
+### #  # ###  #  #  ### ### ###  #   #    ###  #### #     ##   ##   ##  ### ###  ##  #  #
+ #  ## # #  # #  # #     #  #  #  # #     #  # #    #    #  # #  # #  #  #   #  #  # ## #
+ #  # ## #  # #  #   #   #  ###    #      ###  ##   #    #  # #    ####  #   #  #  # # ##
+ #  #  # #  # #  #    #  #  #  #   #      #  # #    #    #  # #  # #  #  #   #  #  # #  #
+### #  # ###   ##  ###   #  #  #   #      #  # #### ####  ##   ##  #  #  #  ###  ##  #  #
+
+#Category only allowed for NOR
+ZOM_spawn_zombies = {
+
+	ZOM_spawn_1 = {
+
+		icon = generic_civil_support
+
+		
+
+		allowed = { 
+			original_tag = ZOM
+		}
+		
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 60
+
+		modifier = {
+			
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		visible = {
+			#has_war = yes
+			has_completed_focus = ZOM_reanimation
+		}
+		
+		available = {
+			NOT = { 
+				has_idea = ZOM_spawn_idea
+			}
+		}
+		
+		
+		
+		complete_effect = {
+			add_ideas = ZOM_spawn_idea
+		}
+
+		remove_effect = {
+			remove_ideas = ZOM_spawn_idea
+			620 = {
+			create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+				}
+		}
+	}
+} # end of decision category

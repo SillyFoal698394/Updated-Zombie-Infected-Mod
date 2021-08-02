@@ -13,6 +13,9 @@
  ZOM_fetch_me_their_souls_3:0 "Fetch Me Their Souls III"
  ZOM_fetch_me_their_souls_3_desc:0 ""
  ZOM_undeadhorse_tt:0 "We will gain a §Ynew wave of 12 Undead Horsemen§! "
+
+ ZOM_undeadMONGOLhorse_tt:0 "We will gain a §Ynew wave of 20 Undead Horsemen§! "
+ 
  ZOM_horde_instinct:0 "Horde Instinct"
  ZOM_horde_instinct_desc:0 ""
  ZOM_jugular_bite:0 "Jugular Bite"
@@ -20,12 +23,28 @@
  ZOM_reanimation:0 "Reanimation"
  ZOM_reanimation_desc:0 ""
  ZOM_reanimation_tt:0 "We will gain a §Ynew wave of 40 Zombies§! "
+ ZOM_mongol_horses:0 "Mongol Horses"
+ ZOM_mongol_horses_desc:0 ""
  ZOM_blood_in_the_air:0 "Blood in the Air"
  ZOM_blood_in_the_air_desc:0 ""
  ZOM_expand_the_hivemind:0 "Expand the Hivemind"
  ZOM_expand_the_hivemind_desc:0 ""
+ ZOM_mutation_1:0 "Mutation I"
+ ZOM_mutation_1_desc:0 ""
+ ZOM_nexus_of_the_dead:0 "Nexus of the Dead"
+ ZOM_nexus_of_the_dead_desc:0 ""
+ ZOM_mutation_2:0 "Mutation II"
+ ZOM_mutation_2_desc:0 ""
+ updateplease_tt:0 "More to come in future updates"
+ 
  
  wars.1.t:0 "Spread the Infection"
  wars.1.d:0 ""
  wars.2.t:0 "Spread the Infection"
  wars.2.d:0 ""
+ 
+ ZOM_spawn_zombies:0 "Spawn Zombies" # categories
+ ZOM_spawn_1:0 "Spawn Zombies" # actual decision 1
+ ZOM_spawn_idea:0 "Spawning Zombies" # idea to show when Zombies are spawning
+ ZOM_spawn_idea_desc:0 ""
+ ZOM_spawn_message_tt:0 "Unlocks decisions to spawn waves of zombies."

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿#capital = 620
 set_oob = "ZOM_1936"
 
@@ -82,3 +83,210 @@ create_country_leader = {
 #	planning_skill = 2
 #	logistics_skill = 1
 #}
+=======
+﻿#capital = 620
+set_oob = "ZOM_1936"
+
+
+
+set_research_slots = 0
+set_stability = 1
+set_war_support = 1
+set_convoys = 500
+
+
+set_technology = {
+ 	infantry_weapons = 1
+	infantry_weapons1 = 1
+	
+}
+
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+	}
+	set_naval_oob = "ENG_1936_naval_legacy"
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+	}
+	set_naval_oob = "ENG_1936_naval_mtg"
+}
+
+set_popularities = {
+	democratic = 0   #cal
+	communism = 0    #nath
+	fascism = 0      #jack
+	neutrality = 100   #me
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.01.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+add_ideas = {
+	closed_economy
+	tot_economic_mobilisation
+	extensive_conscription 
+}
+
+create_country_leader = {
+	name = "Zombie Controller"
+	desc = "POLITICS_EDWIN_BARCLAY_DESC"
+	picture = "GFX/leaders/ZOM/ZOM_leader.dds"                        #ME / nonaligned
+	expire = "1965.1.1"
+	ideology = centrism
+	traits = {
+		#indecisive
+	}
+}
+
+
+
+#Generals
+
+#create_corps_commander = {
+#	name = "Sam Coutts"
+#	picture = "Portrait_Yorkshire_Sam_Coutts.dds"
+#	traits = { inflexible_strategist career_officer }
+#	skill = 3
+#	attack_skill = 1
+#	defense_skill = 3
+#	planning_skill = 2
+#	logistics_skill = 1
+#}
+
+create_corps_commander = {
+	name = "Bull"
+	picture = "Portrait_Zombieland_Bull.dds" # Bull form WWZ
+	traits = { }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Executioner"
+	picture = "Portrait_Zombieland_Executioner.dds"		#resident evil duh
+	traits = { }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Executioner II"
+	picture = "Portrait_Zombieland_Executioner2.dds"		
+	traits = { }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Nemesis"
+	picture = "Portrait_Zombieland_Nemesis.dds"		#resident evil duh
+	traits = { }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Solanum"	# name from WWz virus name
+	picture = "Portrait_Zombieland_Solanum.dds"
+	traits = { }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Tank"	# L4D special
+	picture = "Portrait_Zombieland_Tank.dds"
+	traits = { }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Tank II"	
+	picture = "Portrait_Zombieland_Tank2.dds"
+	traits = { }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Infecter"
+	picture = "Portrait_Zombieland_Infecter.dds"
+	traits = { }
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Master"
+	picture = "Portrait_Zombieland_Master.dds"
+	traits = { }
+	skill = 3
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Spitter"
+	picture = "Portrait_Zombieland_Spitter.dds"
+	traits = { }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Wretch"
+	picture = "Portrait_Zombieland_Wretch.dds"
+	traits = { }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+>>>>>>> Stashed changes

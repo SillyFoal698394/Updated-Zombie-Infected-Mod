@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 add_namespace = zombieland
 
@@ -4596,3 +4597,4435 @@ country_event = {			# transfer random coastal state to Zombies
 	
 	} # end of only option
 }
+=======
+
+add_namespace = zombieland
+
+####################################################################################################
+# ID 			EVENT
+
+# 100			Startup event to spawn zombies (in on_action)
+# 200           Zombies spawn in China
+# 300           After reaching the Chinese coast, zombies will appear in Brazil and Japan
+# 4 - 26        Random coast state zombie spawn (Merchant Ship)
+# 27            New wave of zombies spawn in China, when China is 0.45 surrender_progress
+# 28 - 33       Random coast state zombie spawn (Merchant Ship)
+# 34,35,40 - 45 Events to do with forming Grand Alliance of Humanity
+
+####################################################################################################
+
+
+
+
+
+
+
+
+
+
+country_event = {			
+	id = zombieland.100
+	title = zombieland.100.t
+	desc = zombieland.100.d
+	picture = GFX_startup_event
+
+	fire_only_once = yes
+	
+	option = {
+	name = "Now"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	add_ideas = zombies_are_coming
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1000 } #deadly pathogen discovered in china!
+	}
+	
+	hidden_effect = {
+		country_event = { id = zombieland.200 days = 3 } # zombies spawn
+	}
+	
+	
+	}
+	
+	
+	
+	option = {
+	name = "1 Year"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	add_ideas = zombies_are_coming
+	hidden_effect = {
+		news_event = { days = 350 id = news.1000 } #deadly pathogen discovered in china!
+	}
+	
+	hidden_effect = {
+		country_event = { id = zombieland.200 days = 365 } # zombies spawn
+	}
+	
+	}
+	
+	
+	
+	
+	option = {
+	name = "2 Years"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	add_ideas = zombies_are_coming
+	hidden_effect = {
+		news_event = { days = 720 id = news.1000 } #deadly pathogen discovered in china!
+	}
+	
+	hidden_effect = {
+		country_event = { id = zombieland.200 days = 730 } # zombies spawn
+	}
+
+	
+	}
+	
+} # end of event .1
+
+
+country_event = {			# Zombies spawn in China
+	id = zombieland.200
+	title = zombieland.200.t
+	desc = zombieland.200.d
+	picture = GFX_zombies_appear_in_China
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	#trigger = {	has_idea = zombies_are_coming }
+	option = {
+	name = "Not our concern"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+	remove_ideas = zombies_are_coming
+	add_threat = 25
+	hidden_effect = {
+		# SPAWN ZOMBIES 
+		
+		
+		news_event = { hours = 6 id = news.1006 days = 12 }
+	
+		CHI = {
+			
+			country_event = { id = zombieland.34 days = 7 }
+		}
+		ZOM = {
+			add_ideas = ravenous
+			add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 10000
+			producer = ZOM
+			}
+			add_equipment_to_stockpile = {
+			type = convoy
+			amount = 10000
+			producer = ZOM
+			}
+		
+			set_state_owner = 620 # Wuhan
+			set_capital = 620
+			add_state_core = 620
+			#add_core_of = ZOM
+			transfer_state = 620
+			
+			load_oob = "ZOM_1936"
+			declare_war_on = {
+			target = CHI
+			type = annex_everything
+			
+			
+		}
+		
+		
+		division_template = {
+					name = "Undead Horsemen"
+					priority = 1
+					#division_names_group = SOV_INF_100
+					regiments = {
+						undeadhorsemen = { x = 0 y = 0 }
+						undeadhorsemen = { x = 0 y = 1 }
+						undeadhorsemen = { x = 0 y = 2 }
+						undeadhorsemen = { x = 0 y = 3 }
+						undeadhorsemen = { x = 0 y = 4 }
+						
+						undeadhorsemen = { x = 1 y = 1 }
+						undeadhorsemen = { x = 1 y = 2 }
+						undeadhorsemen = { x = 1 y = 3 }
+						undeadhorsemen = { x = 1 y = 4 }
+						undeadhorsemen = { x = 1 y = 0 }
+						undeadhorsemen = { x = 2 y = 1 }
+						undeadhorsemen = { x = 2 y = 2 }
+						undeadhorsemen = { x = 2 y = 3 }
+						undeadhorsemen = { x = 2 y = 4 }
+						undeadhorsemen = { x = 2 y = 0 }
+						undeadhorsemen = { x = 3 y = 1 }
+						undeadhorsemen = { x = 3 y = 2 }
+						undeadhorsemen = { x = 3 y = 3 }
+						undeadhorsemen = { x = 3 y = 4 }
+						undeadhorsemen = { x = 3 y = 0 }
+					}
+				
+				}
+		
+		
+		division_template = {
+					name = "Zombies"
+					priority = 1
+					#division_names_group = SOV_INF_100
+					regiments = {
+						zombie = { x = 0 y = 0 }
+						zombie = { x = 0 y = 1 }
+						zombie = { x = 0 y = 2 }
+						zombie = { x = 0 y = 3 }
+						zombie = { x = 0 y = 4 }
+						
+						zombie = { x = 1 y = 0 }
+						zombie = { x = 1 y = 1 }
+						zombie = { x = 1 y = 2 }
+						zombie = { x = 1 y = 3 }
+						zombie = { x = 1 y = 4 }
+						
+						zombie = { x = 2 y = 0 }
+						zombie = { x = 2 y = 1 }
+						zombie = { x = 2 y = 2 }
+						zombie = { x = 2 y = 3 }
+						zombie = { x = 2 y = 4 }
+						
+						# reduced zombies to 30w
+						
+						#zombie = { x = 3 y = 1 }
+						#zombie = { x = 3 y = 2 }
+						#zombie = { x = 3 y = 3 }
+						#zombie = { x = 3 y = 4 }
+						#zombie = { x = 3 y = 0 }
+					}
+				
+				}
+				620 = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					#prioritize = { 46 }
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+				} #end of 620
+		
+		
+		} #end of ZOM
+			
+			
+		CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+		CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+		CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+		CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+		CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+			 CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+			  CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+			  CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+			  CHI = { delete_unit = { 
+            state = 620             
+             disband = yes #will refund equipment and manpower
+              }}
+			  
+			  
+		} #end of hidden effect
+		
+	
+	} # end of only option
+
+} # end of event .2
+
+country_event = {			# Zombies spawn in Japan and Brazil
+	id = zombieland.300
+	title = zombieland.300.t
+	desc = zombieland.300.d
+	picture = GFX_report_event_soviet_purge_trial
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ZOM
+		ZOM = {
+				any_owned_state = {
+					is_coastal = yes
+				}
+			}	
+	}
+		
+		
+	mean_time_to_happen = { days = 1 }
+	
+	
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+
+	
+
+	hidden_effect = {
+		# SPAWN ZOMBIES IN JAPAN
+		ZOM = {
+			set_state_owner = 528 # Japan
+			#set_capital = 620
+			transfer_state = 528 #KYUSHU
+			
+			set_state_owner = 498 # Brazil
+			add_state_core = 498
+			transfer_state = 498 # RIO GRANDE DE NORTE
+			
+			set_state_owner = 499 # Brazil
+			add_state_core = 499
+			transfer_state = 499 # BAHIA
+			
+			declare_war_on = {
+			target = JAP
+			type = annex_everything
+			}
+			
+			declare_war_on = {
+				target = BRA
+				type = annex_everything
+			}
+				528 = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					#prioritize = { 46 }
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+				} #end of 528
+				
+				498 = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					#prioritize = { 46 }
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+				} #end of 498
+		
+		
+		} #end of ZOM
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.4
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 595 # CHINE COAST
+				controls_state = 595
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+	news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+					
+	
+					} #end of 528
+				}# end of ZOM
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.5
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 326 # HK
+				controls_state = 326
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+				}
+	
+	
+	
+	  
+		} #end of hidden effect
+		
+		random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		}
+		
+		
+		
+		}
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.6
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {
+		tag = ZOM	
+		ZOM = {
+			OR = {
+				owns_state = 591 # Hainan
+				controls_state = 591
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+		
+		
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+					} #end of 528
+	}
+	
+	
+	
+	  
+		}	
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.7
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 608 # Beijing
+				controls_state = 608
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+					
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		}
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.8
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 531 # OSAKA
+				controls_state = 531
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.9
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 286 # Saigon / South Indochina
+				controls_state = 286
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.10
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 336 # Singapore
+				controls_state = 336
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+					
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.11
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 430 # East Bengal
+				controls_state = 430
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+					
+						
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.12
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 408 # Vlad
+				controls_state = 408
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.13
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 745 # Dalain (lil Jap bit in Yellow Sea)
+				controls_state = 745
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.14
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 613 # Shanghai
+				controls_state = 613
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.15
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 335 # Jakarta / JAVA
+				controls_state = 335
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.16
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 446 # Cairo / SUEZ
+				controls_state = 446
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.17
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 117 # Naples
+				controls_state = 117
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.18
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 118 # Gib
+				controls_state = 118
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.19
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 500 # Rio De something idk BRAZIL 
+				controls_state = 500
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.20
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 743 # Quindao
+				controls_state = 743
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.21
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 288 # Rangoon
+				controls_state = 288
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.22
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 659 # Aden
+				controls_state = 659
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.23
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 272 # DAKAR
+				controls_state = 272
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.24
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 685 # Pan Canal
+				controls_state = 685
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.25
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 431 # West Bengal
+				controls_state = 431
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.26
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 729 # Macau
+				controls_state = 729
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.28
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 529 # Hiroshima
+				controls_state = 529
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.29
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 282 # tokoyo
+				controls_state = 282
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.30
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 797 # Bosphurus
+				controls_state = 797
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+					
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.31
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 21 # Toulon
+				controls_state = 21
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.32
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 58 # Hamburg
+				controls_state = 58
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+					
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.33
+	title = zombieland.4.t
+	desc = zombieland.4.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ZOM
+		ZOM = {
+			OR = {
+				owns_state = 195 # Leningrad
+				controls_state = 195
+			}	
+	}
+	}
+	option = {
+	name = "Oh god"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		news_event = { hours = 6 id = news.1001 }
+	}
+	random_state = {
+		limit = {
+			is_coastal = yes
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+	}
+	
+	
+	
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = {			# More zombies in china 
+	id = zombieland.27
+	title = zombieland.27.t
+	desc = zombieland.27.d
+	picture = GFX_zombies_appear_in_China
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ZOM
+		CHI = {
+			surrender_progress > 0.45
+			#surrender_progress > 0.02
+			has_war_with = ZOM
+		}
+			
+	}
+		
+		
+	mean_time_to_happen = { days = 1 }
+	
+	
+	option = {
+	name = "Our Hordes Grow"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+
+	hidden_effect = {
+
+		ZOM = {
+				620 = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					#prioritize = { 46 }
+
+				
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					create_unit = {
+						division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+						owner = ZOM
+					}
+					
+					
+				} #end of 498
+		
+		
+		} #end of ZOM
+	  
+		} #end of hidden effect
+	
+	} # end of only option
+}
+
+
+
+country_event = {							# ask to form alliance against zombies
+	id = zombieland.34
+	title = zombieland.34.t
+	desc = zombieland.34.d
+	picture = GFX_China_faction_proposal
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = CHI
+	}
+	
+	#mean_time_to_happen = { days = 1 }
+	
+	option = {
+	name = "Form the Alliance"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+	CHI = { create_faction = ZOM_human_alliance }
+
+	XSM = {	country_event = { id = zombieland.35 } }# ask nations at war with ZOMBIES to join alliance
+	SHX = {	country_event = { id = zombieland.40 } }
+	PRC = {	country_event = { id = zombieland.41 } }
+	GXC = {	country_event = { id = zombieland.42 } }
+	YUN = {	country_event = { id = zombieland.43 } }
+	
+	}
+	
+	
+	
+	option = {
+	name = "They'll only hold us back"
+		ai_chance = {
+			factor = 0						
+		
+	}
+
+	}
+#
+} # end of event .34
+
+
+country_event = {			
+	id = zombieland.35				# china asks warlord to form new faction
+	title = zombieland.35.t
+	desc = zombieland.35.d
+	picture = GFX_China_faction_proposal
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = "Stronger as one!"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+		CHI = { add_to_faction = XSM }
+
+	} # end of option 1
+	
+	option = {
+	name = "They'll only hold us back"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	
+	}
+
+} # end of event .35
+
+
+country_event = {			
+	id = zombieland.40				# china asks warlord to form new faction
+	title = zombieland.35.t
+	desc = zombieland.35.d
+	picture = GFX_China_faction_proposal
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = "Stronger as one!"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+		CHI = { add_to_faction = SHX }
+
+	} # end of option 1
+	
+	option = {
+	name = "They'll only hold us back"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	
+	}
+
+} # end of event .40
+
+country_event = {			
+	id = zombieland.41				# china asks warlord to form new faction
+	title = zombieland.35.t
+	desc = zombieland.35.d
+	picture = GFX_China_faction_proposal
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = "Stronger as one!"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+		CHI = { add_to_faction = PRC }
+
+	} # end of option 1
+	
+	option = {
+	name = "They'll only hold us back"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	
+	}
+
+} # end of event .35
+country_event = {			
+	id = zombieland.42				# china asks warlord to form new faction
+	title = zombieland.35.t
+	desc = zombieland.35.d
+	picture = GFX_China_faction_proposal
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = "Stronger as one!"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+		CHI = { add_to_faction = GXC }
+
+	} # end of option 1
+	
+	option = {
+	name = "They'll only hold us back"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	
+	}
+
+} # end of event .42
+country_event = {			
+	id = zombieland.43				# china asks warlord to form new faction
+	title = zombieland.35.t
+	desc = zombieland.35.d
+	picture = GFX_China_faction_proposal
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = "Stronger as one!"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	
+		CHI = { add_to_faction = YUN }
+
+	} # end of option 1
+	
+	option = {
+	name = "They'll only hold us back"
+		ai_chance = {
+			factor = 0						
+		
+	}
+	
+	}
+
+} # end of event .43
+
+country_event = {			# transfer random coastal state to Zombies
+	id = zombieland.36
+	title = zombieland.36.t
+	desc = zombieland.36.d
+	picture = GFX_zombie_merchant_ship
+
+	fire_only_once = yes
+	trigger = {	
+		tag = ENG
+		ENG = { has_war_with = ZOM }
+		ENG = { has_capitulated = yes }	
+	}
+	
+	option = {
+	name = "God Help Them"
+		ai_chance = {
+			factor = 100							
+		
+	}
+	 
+	hidden_effect = {
+		
+	
+	random_state = {
+		limit = {
+			is_coastal = yes
+			is_owned_by = CAN
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+	
+					} #end of 528
+				}
+			}
+		
+		random_state = {
+		limit = {
+			is_coastal = yes
+			is_owned_by = NZL
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+				}
+			}
+		
+		random_state = {
+		limit = {
+			is_coastal = yes
+			is_owned_by = AST
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+				}
+			}
+		
+		random_state = {
+		limit = {
+			is_coastal = yes
+			is_owned_by = SAF
+			NOT = {
+				is_controlled_by = ROOT
+			}
+		}
+		ZOM = {
+			transfer_state = PREV
+			PREV = {
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						create_unit = {
+							division = "name = \"Zombie\" division_template = \"Zombies\" start_experience_factor = 0.1" 
+							owner = ZOM
+						}
+						
+						
+	
+					} #end of 528
+				}
+	
+	
+	
+	  
+		}# end of 4th random_state 
+		
+		
+		
+		} # end of hidden_effect
+	
+	} # end of only option
+	}
+	
+country_event = {			
+	id = zombieland.44				# FIRST MUTATION EVENT
+	title = zombieland.44.t
+	desc = zombieland.44.d
+	picture = GFX_pathogen_mutates1	# TY
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+	name = "Speed is the way"
+		ai_chance = {
+			factor = 50							
+		
+	}
+	
+		add_ideas = devastating_speed
+		hidden_effect = {
+				news_event = { hours = 6 id = news.1008 } # virus mutates 1st time!
+		}
+
+	} # end of option 1
+	
+	option = {
+	name = "Overwhelm them"
+		ai_chance = {
+			factor = 50						
+		
+	}
+		add_ideas = numbers_alone
+		hidden_effect = {
+				news_event = { hours = 6 id = news.1008 } # virus mutates 1st time!
+			}
+	} # end of option 2
+
+} # end of event .44
+
+	
+	
+	
+>>>>>>> Stashed changes
